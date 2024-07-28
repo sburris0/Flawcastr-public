@@ -110,7 +110,8 @@ class ClientInfoDialog(QDialog):
 
         # Add logo image
         logo = QLabel()
-        pixmap = QPixmap(r'C:\Users\sonni\Dropbox\Code\Flawcastr\flawcastr_logo.jpeg')
+        image_path = os.path.join(BASE_DIR, 'flawcastr_logo.jpeg')
+        pixmap = QPixmap(image_path)
         logo.setPixmap(pixmap)
         layout.addRow(logo)
 
@@ -169,10 +170,10 @@ class ClientInfoDialog(QDialog):
         return {
             "individual_or_couple": self.individual_or_couple.currentText(),
             "client1_name": self.client1_name.text(),
-            "client1_age": self.client1_age.text(),
+            "client1_age": int(self.client1_age.text()),
             "client2_name": self.client2_name.text(),
-            "client2_age": self.client2_age.text(),
-            "age_to_follow_to": self.age_to_follow_to.text()
+            "client2_age": int(self.client2_age.text()) if self.client2_age.text() else 0,
+            "age_to_follow_to": int(self.age_to_follow_to.text())
         }
 
     def update_client2_visibility(self):
@@ -204,9 +205,35 @@ def apply_initial_window_data_to_config(client_info):
     config.individual_or_couple = client_info["individual_or_couple"]
     config.client1_name = client_info["client1_name"]
     config.client1_age = int(client_info["client1_age"])
+    config.benchmark_age = config.client1_age
     config.client2_name = client_info.get("client2_name", "")
     config.client2_age = int(client_info.get("client2_age", 0))
     config.age_to_follow_to = int(client_info["age_to_follow_to"])
+
+    # Update child ages
+    config.child1_age = config.client1_age - 28
+    config.child2_age = config.client1_age - 30
+    config.child3_age = config.client1_age - 32
+    config.child4_age = config.client1_age - 34
+    config.child5_age = config.client1_age - 36
+
+    # Update education start years
+    config.education_start_year_child1 = config.age_of_providing_initial_educational_assistance - config.child1_age
+    config.education_start_year_child2 = config.age_of_providing_initial_educational_assistance - config.child2_age
+    config.education_start_year_child3 = config.age_of_providing_initial_educational_assistance - config.child3_age
+    config.education_start_year_child4 = config.age_of_providing_initial_educational_assistance - config.child4_age
+    config.education_start_year_child5 = config.age_of_providing_initial_educational_assistance - config.child5_age
+
+    # Ensure all age-related variables are integers
+    age_related_vars = ['client1_age', 'client2_age', 'benchmark_age', 'age_to_follow_to',
+                        'child1_age', 'child2_age', 'child3_age', 'child4_age', 'child5_age',
+                        'education_start_year_child1', 'education_start_year_child2', 
+                        'education_start_year_child3', 'education_start_year_child4', 
+                        'education_start_year_child5', 'client1_retirement_age', 'client2_retirement_age']
+    
+    for var in age_related_vars:
+        if hasattr(config, var):
+            setattr(config, var, int(getattr(config, var)))
 
     for key, value in client_info.items():
         setattr(config, key, value)
@@ -224,13 +251,16 @@ if __name__ == "__main__":
         # Update all relevant config variables
         config.individual_or_couple = client_info["individual_or_couple"]
         config.client1_name = client_info["client1_name"]
-        config.client1_age = int(client_info["client1_age"])
+        config.client1_age = client_info["client1_age"]  # This is now an integer from get_data()
         config.client2_name = client_info["client2_name"]
-        config.client2_age = int(client_info["client2_age"])
-        config.age_to_follow_to = int(client_info["age_to_follow_to"])
+        config.client2_age = client_info["client2_age"]  # This is now an integer from get_data()
+        config.age_to_follow_to = client_info["age_to_follow_to"]  # This is now an integer from get_data()
         
         # Update dependent variables
         config.years_to_model = config.age_to_follow_to - config.client1_age
+
+        # Call apply_initial_window_data_to_config here
+        apply_initial_window_data_to_config(client_info)
 
         if check_expiry():
             # Only import viz and instantiate MyWindow after user input is processed

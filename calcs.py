@@ -80,14 +80,15 @@ def display_balance_scenarios(years, deterministic_balances, probabilistic_balan
     print(table)
 
 
-
 def calculate_retirement_expenditures():
     retirement_expenditures = []
     for year in range(config.years_to_model + 1):
         current_year_age = config.benchmark_age + year
+        client1_current_age = config.client1_age + year
+        client2_current_age = config.client2_age + year if config.individual_or_couple == "couple" else float('inf')
 
         # Determine initial retirement expenditure
-        if config.client1_age + year >= config.client1_retirement_age or config.client2_age + year >= config.client2_retirement_age:
+        if client1_current_age >= config.client1_retirement_age or client2_current_age >= config.client2_retirement_age:
             if config.individual_or_couple == "couple":
                 if current_year_age >= config.age_when_one_passes_away:
                     expenditure = config.retirement_expenditure_individual
@@ -140,11 +141,12 @@ def calculate_savings():
 
 
 def calculate_nz_super():
-    nz_super = []  
-    client1_current_age = config.client1_age
-    client2_current_age = config.client2_age
+    nz_super = []
     for year in range(config.years_to_model + 1):
         current_year_age = config.benchmark_age + year
+        client1_current_age = config.client1_age + year
+        client2_current_age = config.client2_age + year if config.individual_or_couple == "couple" else 0
+
         if client1_current_age >= config.nz_super_age_eligibility or client2_current_age >= config.nz_super_age_eligibility:
             if config.individual_or_couple == "couple":
                 if current_year_age >= config.age_when_one_passes_away:
@@ -158,8 +160,6 @@ def calculate_nz_super():
         else:
             result = 0
         nz_super.append(result)
-        client1_current_age += 1  
-        client2_current_age += 1  
     return nz_super
 
 
