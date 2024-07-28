@@ -18,6 +18,16 @@ The ultimate goal for Flawcastr is to create a freely-available resource that mi
 
 ===
 
+# HOW TO CONTRIBUTE
+
+At the moment, I am seeking assistance of any sort from people with relevant skills/knowledge with whom I have a direct relationship (or, at least, a friend-of-a-friend relationship). Ideally I would channel feedback (however provided) into the project to begin with, with an eye to making this project available to a wider range of contributors in the future. 
+
+If you're interested in contributing, please contact me:
+- Email: sonnie.bailey@outlook.com
+- Phone: +64 21 0269 2213
+
+===
+
 # CURRENT STATE
 
 Context for this project (July 2024, around the time it was first made available on Github) can be found here: https://sonniebailey.com/flawcastr-open-source-project/.
