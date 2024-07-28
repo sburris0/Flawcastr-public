@@ -1,2 +1,12 @@
 collate.py
 validation_*.*
+
+# Virtual environments
+.env
+.venv
+
+# Pyenv
+.python-version
+
+# Poetry
+poetry.lock

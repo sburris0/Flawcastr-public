@@ -52,11 +52,27 @@ To contribute to this project, please contact Sonnie Bailey via sonnie.bailey@ou
 
 # SETUP INSTRUCTIONS 
 
-Providing setup instructions is one area I need help with! My hope and expectation is that this easy, given that it is a project that consists of a limited number of Python modules. 
+Providing setup instructions is one area I need help with! Here is my best attempt, utilising Python Poetry.
 
-For running via the .py modules, run from Flawcastr.py. Make sure Python has been installed and that all relevant dependencies have also been installed. To ensure this is the case:
+To run the project from `Flawcastr.py`, follow these steps:
 
-pip install matplotlib, PyQt, prettytable, numpy, datetime, variables, typing
+1. Clone the repository:
+   	git clone https://github.com/sonniebailey/Flawcastr-public.git
+   	cd Flawcastr-public
+
+2. Install Poetry: If you haven't installed Poetry yet, you can do so using the following command:
+	curl -sSL https://install.python-poetry.org | python3 -
+
+3.	Install Dependencies: Run the following command to install the project dependencies using Poetry:
+	poetry install
+
+4.	Activate the Virtual Environment: To activate the virtual environment created by Poetry, use:
+	poetry shell
+
+5.	Run the Project: You can now run the project using:
+	python Flawcastr.py
+
+(If these instructions don't make sense, use an LLM to see if it can translate them to make it work! And/or let me know!)
 
 ===
 
