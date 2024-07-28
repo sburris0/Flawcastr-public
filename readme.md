@@ -66,6 +66,8 @@ Flawcastr consists of various modules:
 
 * flawcastr.py, which brings it all together. This is the script that runs. 
 
+* validation.py, which is a work in progress. This (and perhaps other) modules are intended to be used to validate calculations in a systematic fashion. The exact approach(es) are TBC.
+
 Essentially, configs.py holds the varaibles. Calcs makes calculations based on these variables. Viz and viz_widgets chart the outcomes of these calculations. Viz (via viz_widgets) allows the user to update variables in config, which then update calcs and what is plotted on the chart. 
 
 ## DEPENDENCIES 
@@ -84,6 +86,8 @@ Libraries that are currently being used in this project:
 
 # ISSUES THAT REQUIRE IMMEDIATE ATTENTION (AS AT 23 JULY 2024):
 
+(Note, as at 28 July 2024: the first issue, relating to calculations anchoring to the incorrect age, appears to be addressed. Validation hasn't been implemented, but preliminary manual testing of the app suggests that calculations are working as expected/desired. In light of this, Flawcastr as it stands is arguably ready for alpha testing.)
+
 * Some calculations are anchoring to the incorrect age. 
 
 * Additional validation of calculations is required. 
@@ -96,11 +100,13 @@ Once these are addressed, an initial alpha/beta version of Flawcastr should be r
 
 # FUTURE IMPROVEMENTS
 
+* Packaging Flawcastr so users can run it in Windows, MacOS, and Linux.
+
 * Improving the appearance of Flawcastr! It’s pretty utilitarian at the moment.
 
 * Making Flawcastr available via browser rather than a packaged Python app. (On that note, when I package Flawcastr as an .exe it approaches 200MB in size, which seems ridiculous!)
 
-* Developing Flawcastr so it is useful for people outside of New Zealand. One of the reasons I’ve made it for a Kiwi audience is because I live in New Zealand. Another is because I’m familiar with New Zealand’s regulatory regime and I am confident that Flawcastr won’t trigger any local regulatory issues, whereas I am not sure about other jurisdictions. Another important reason is because New Zealand has a unique pension and retirement saving regime, which makes it very simple compared to other countries. Specifically, New Zealand has a universal pension regime – so long as you meet the eligibility requirements, you receive the same pension as everyone else, regardless of your asset and income position (with some, but not many, caveats). The flip side of this is that because New Zealand is so generous with pension payments, it doesn’t provide the same type of incentives for saving for retirement, such as concessional tax treatment (which is the case for 401Ks, IRAs, and the like). Once Flawcastr is shown to be useful for Kiwis, people in other countries might want to make changes to accommodate idiosyncrasies that might relate to their own country(ies).
+* Developing Flawcastr so it is useful for people outside of New Zealand. One of the reasons I’ve made it for a Kiwi audience is because I live in New Zealand. Another is because I’m familiar with New Zealand’s regulatory regime and I am confident that Flawcastr won’t trigger any local regulatory issues, whereas I am not sure about other jurisdictions. Another important reason is because New Zealand has a unique pension and retirement saving regime, which makes it very simple compared to other countries. Specifically, New Zealand has a universal pension regime – so long as you meet the eligibility requirements, you receive the same pension as everyone else, regardless of your asset and income position (with some, but not many, caveats). The flip side of this is that because New Zealand is so generous with pension payments, it doesn’t provide the same type of incentives for saving for retirement, such as concessional tax treatment (which is the case for 401Ks, IRAs, and the like). Once Flawcastr is shown to be useful for Kiwis, people in other countries might want to make changes to accommodate idiosyncrasies that might relate to their own country(ies). One way I envision doing this is having dedicated ~calcs.py and ~viz_widgets.py modules for each location - eg, calcs_nz.py and viz_widgets_nz.py, calcs_australia.py and viz_widgets_australia.py, etc, which are called upon based on an overarching variable chosen by the users - which country they are baesd in. This might require some additional tweaks in other modules, but I envision that after these tweaks it should be possible to keep country-specific changes limited to one or two modules only, keeping all other modules applicable for all. 
 
 * Improving wording throughout the app – ie, for the right column, explanations when users hover over certain variables (not to mention, how these explanations are triggered! they are currently inconsistent), and improved documentation.
 
@@ -108,7 +114,7 @@ Once these are addressed, an initial alpha/beta version of Flawcastr should be r
 
 * Allowing users to save scenarios (and perhaps even different user profiles).
 
-* Allow users to export scenarios to other file formats such as CSV.
+* Allow users to export scenarios to other file formats such as CSV. (This feature might even be in the code as it stands, but commented out in order to limit steps towards an MVP.)
 
 * Improve the general coding. When I started this project, I was a total noob when it comes to software development. I am conscious that there are many, many parts of the code base that are sub-optimal, and one of my sticking points with making this publicly available is that I'm embarrassed about this! For example, this project uses a lot of individual variables that should probably be treated as classes. In fact, early iterations of the project included classes instead of variables. The decision to use variables (even against the recommendations of ChatGPT/Claude!) was simply because there were too many other moving parts that I was focusing on, and using variables was more intuitive and less abstract to me than using classes at the time. Flawcastr as it currently stands wouldn't exist if I had not made that choice. At the moment I haven't explicitly followed any coding standards, commenting is spotty, and Claude and ChatGPT are always telling me I need more testing in my code.
 
@@ -140,10 +146,11 @@ It is also worth noting that Flawcastr is being offered as an open-source projec
 
 ## OTHER JURISDICTIONS
 
-If and when Flawcastr is updated to operate in other countries, regulatory concerns should be considered on a case-by-case basis. 
+If and when Flawcastr is updated to operate in other countries, regulatory concerns should be considered on a case-by-case basis, by developers working in the context of that country.
 
 ===
 
 # README UPDATES
 
 * Document first created 23/7/24
+* Minor amendments 28/7/24
