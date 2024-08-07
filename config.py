@@ -3,13 +3,13 @@ from datetime import date
 expiry_date = date(2024, 10, 1)  # Year, Month, Day
 
 opening_year = date.today().year
-explanations = "yes" # this is somewhat historical. At the moment, nothing changes on this. However, there are some items in viz_widgets that are conditional on this being 'yes'. Eventually I'll update viz_widgets to clean this up and make this variable redundant.
+explanations = "yes"  # this is somewhat historical. At the moment, nothing changes on this. However, there are some items in viz_widgets that are conditional on this being 'yes'. Eventually I'll update viz_widgets to clean this up and make this variable redundant.
 
 individual_or_couple = "couple"
-client1_gender = 'male'
-client1_name = 'Jack'
+client1_gender = "male"
+client1_name = "Jack"
 client1_age = 39
-client2_name = 'Jill'
+client2_name = "Jill"
 client2_age = 37
 client_to_benchmark = client1_name
 benchmark_age = client1_age
@@ -60,21 +60,45 @@ child2_age = client1_age - 30
 child3_age = client1_age - 32
 child4_age = client1_age - 34
 child5_age = client1_age - 36
-assisting_with_education_for_children_yes_or_no = "yes" # redundant, need to keep as "yes" until I update other modules
+assisting_with_education_for_children_yes_or_no = (
+    "yes"  # redundant, need to keep as "yes" until I update other modules
+)
 annual_amount_of_educational_assistance = 20000
 age_of_providing_initial_educational_assistance = 19
 years_of_providing_educational_assistance = 5
-education_start_year_child1 = age_of_providing_initial_educational_assistance - child1_age
-education_start_year_child2 = age_of_providing_initial_educational_assistance - child2_age
-education_start_year_child3 = age_of_providing_initial_educational_assistance - child3_age
-education_start_year_child4 = age_of_providing_initial_educational_assistance - child4_age
-education_start_year_child5 = age_of_providing_initial_educational_assistance - child5_age
-education_end_year_child1 = education_start_year_child1 + years_of_providing_educational_assistance
-education_end_year_child2 = education_start_year_child2 + years_of_providing_educational_assistance
-education_end_year_child3 = education_start_year_child3 + years_of_providing_educational_assistance
-education_end_year_child4 = education_start_year_child4 + years_of_providing_educational_assistance
-education_end_year_child5 = education_start_year_child5 + years_of_providing_educational_assistance
-providing_one_off_assistance_to_children_yes_or_no = "yes" # redundant, need to keep as "yes" until I update other modules
+education_start_year_child1 = (
+    age_of_providing_initial_educational_assistance - child1_age
+)
+education_start_year_child2 = (
+    age_of_providing_initial_educational_assistance - child2_age
+)
+education_start_year_child3 = (
+    age_of_providing_initial_educational_assistance - child3_age
+)
+education_start_year_child4 = (
+    age_of_providing_initial_educational_assistance - child4_age
+)
+education_start_year_child5 = (
+    age_of_providing_initial_educational_assistance - child5_age
+)
+education_end_year_child1 = (
+    education_start_year_child1 + years_of_providing_educational_assistance
+)
+education_end_year_child2 = (
+    education_start_year_child2 + years_of_providing_educational_assistance
+)
+education_end_year_child3 = (
+    education_start_year_child3 + years_of_providing_educational_assistance
+)
+education_end_year_child4 = (
+    education_start_year_child4 + years_of_providing_educational_assistance
+)
+education_end_year_child5 = (
+    education_start_year_child5 + years_of_providing_educational_assistance
+)
+providing_one_off_assistance_to_children_yes_or_no = (
+    "yes"  # redundant, need to keep as "yes" until I update other modules
+)
 amount_of_one_off_assistance_to_children = 100000
 age_of_one_off_assistance_to_children = 28
 allow_for_one_off_items_yes_or_no = "no"
