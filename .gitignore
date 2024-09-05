@@ -1,6 +1,8 @@
 collate.py
 validation_*.*
 
+__pycache__/
+
 # Virtual environments
 .env
 .venv
