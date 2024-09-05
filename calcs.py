@@ -24,29 +24,29 @@ def display_results(years, result_data):
         "Deterministic Balance",
     ]
 
-    for i in range(years):
-        client1_age = config.client1_age + i
+    for year in range(years):
+        client1_age = config.client1_age + year
         client2_age = (
-            config.client2_age + i if config.individual_or_couple == "couple" else "-"
+            config.client2_age + year if config.individual_or_couple == "couple" else "-"
         )
         table.add_row(
             [
-                i,
+                year,
                 round(client1_age),
                 (
                     round(client2_age)
                     if isinstance(client2_age, (int, float))
                     else client2_age
                 ),
-                round(result_data["annual_deterministic_investment_returns"][i]),
-                round(result_data["calculate_savings"][i]),
-                round(result_data["calculate_nz_super"][i]),
-                round(result_data["calculate_retirement_expenditures"][i]),
-                round(result_data["children_educational_assistance"][i]),
-                round(result_data["children_one_off_assistance"][i]),
-                round(result_data["calculate_one_off_items"][i]),
-                round(result_data["calculate_periodic_expenditure"][i]),
-                round(result_data["deterministic_balances"][i]),
+                round(result_data["annual_deterministic_investment_returns"][year]),
+                round(result_data["calculate_savings"][year]),
+                round(result_data["calculate_nz_super"][year]),
+                round(result_data["calculate_retirement_expenditures"][year]),
+                round(result_data["children_educational_assistance"][year]),
+                round(result_data["children_one_off_assistance"][year]),
+                round(result_data["calculate_one_off_items"][year]),
+                round(result_data["calculate_periodic_expenditure"][year]),
+                round(result_data["deterministic_balances"][year]),
             ]
         )
     print(table)
