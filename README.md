@@ -1,8 +1,6 @@
 THIS README WAS LAST UPDATED IN FULL ON 23/7/24. HISTORY OF SUBSTANTIAL UPDATES IS AT THE FOOT OF THIS DOCUMENT.
 
-===
-
-# OVERVIEW
+## Overview
 
 Flawcastr is an open-source project with an AGPL v3 license (no CLAs).
 
@@ -16,9 +14,7 @@ By adjusting these assumptions, a user can get a sense of whether they are on-tr
 
 The ultimate goal for Flawcastr is to create a freely-available resource that millions of people can use in order to get a sense of their financial trajectories and the long-term implications of their financial decisions. The aspiration is for Flawcastr to be considered one of the best retirement calculators and maintain this reputation due to ongoing maintenance and improvements. The aim is for Flawcastr to be so useful and beneficial that is even used by financial advice professionals when engaging with clients. 
 
-===
-
-# HOW TO CONTRIBUTE
+## How to contribute
 
 At the moment, I am seeking assistance of any sort from people with relevant skills/knowledge with whom I have a direct relationship (or, at least, a friend-of-a-friend relationship). Ideally I would channel feedback (however provided) into the project to begin with, with an eye to making this project available to a wider range of contributors in the future. 
 
@@ -26,9 +22,7 @@ If you're interested in contributing, please contact me:
 - Email: sonnie.bailey@outlook.com
 - Phone: +64 21 0269 2213
 
-===
-
-# CURRENT STATE
+## Current state
 
 Context for this project (July 2024, around the time it was first made available on Github) can be found here: https://sonniebailey.com/flawcastr-open-source-project/.
 
@@ -38,9 +32,7 @@ The immediate aim is to get a minimum viable product (MVP) available for distrib
 
 Additional improvements are set out below under FUTURE IMPROVEMENTS. This includes, for example, extending the capabilities of Flawcastr so it can be used by people in different parts of the world.
 
-===
-
-# CONTRIBUTION REQUEST/GUIDELINES
+## Contribution request/guidelines
 
 Flawcastr is in early stages of development. Assistance is required to help create guidelines and an effective framework for future contributions. 
 
@@ -48,37 +40,35 @@ Initially, I (Sonnie) would like to engage with contributors directly. Refer to 
 
 To contribute to this project, please contact Sonnie Bailey via sonnie.bailey@outlook.com.
 
-===
-
-# SETUP INSTRUCTIONS 
+## Setup instructions
 
 Providing setup instructions is one area I need help with! Here is my best attempt, utilising Python Poetry.
 
 To run the project from `Flawcastr.py`, follow these steps:
 
 1. Clone the repository:
+```sh
    	git clone https://github.com/sonniebailey/Flawcastr-public.git
    	cd Flawcastr-public
+```
 
 2. Install Poetry: If you haven't installed Poetry yet, you can do so using the following command:
-	curl -sSL https://install.python-poetry.org | python3 -
+	`curl -sSL https://install.python-poetry.org | python3 -`
 
 3.	Install Dependencies: Run the following command to install the project dependencies using Poetry:
-	poetry install
+	`poetry install`
 
 4.	Activate the Virtual Environment: To activate the virtual environment created by Poetry, use:
-	poetry shell
+	`poetry shell`
 
 5.	Run the Project: You can now run the project using:
-	python Flawcastr.py
+	`python Flawcastr.py`
 
 (If these instructions don't make sense, use an LLM to see if it can translate them to make it work! And/or let me know!)
 
-===
+## Project overview (technical):
 
-# PROJECT OVERVIEW (TECHNICAL):
-
-## MODULES
+### Modules
 
 Flawcastr consists of various modules:
 
@@ -96,7 +86,7 @@ Flawcastr consists of various modules:
 
 Essentially, configs.py holds the varaibles. Calcs makes calculations based on these variables. Viz and viz_widgets chart the outcomes of these calculations. Viz (via viz_widgets) allows the user to update variables in config, which then update calcs and what is plotted on the chart. 
 
-## DEPENDENCIES 
+### Dependencies
 
 Libraries that are currently being used in this project:
 
@@ -108,9 +98,7 @@ Libraries that are currently being used in this project:
 * variables
 * typing
 
-===
-
-# ISSUES THAT REQUIRE IMMEDIATE ATTENTION (AS AT 23 JULY 2024):
+## Issues that request immediate attention (as of 23 July 2024):
 
 (Note, as at 28 July 2024: the first issue, relating to calculations anchoring to the incorrect age, appears to be addressed. Validation hasn't been implemented, but preliminary manual testing of the app suggests that calculations are working as expected/desired. In light of this, Flawcastr as it stands is arguably ready for alpha testing.)
 
@@ -122,9 +110,7 @@ These are discussed in more detail here: https://sonniebailey.com/flawcastr-open
 
 Once these are addressed, an initial alpha/beta version of Flawcastr should be ready to be packaged and shared with people who are interested, in order to receive initial feedback that will inform the future of the project.
 
-===
-
-# FUTURE IMPROVEMENTS
+## Future improvements
 
 * Packaging Flawcastr so users can run it in Windows, MacOS, and Linux.
 
@@ -160,23 +146,19 @@ Once these are addressed, an initial alpha/beta version of Flawcastr should be r
 
 * Automating scenarios, either ~mechanistically or integrating with an LLM API. For example, automating scenarios that involve extended time out of the workforce due to illness, and contrasting this with the cost of premiums for income protection insurance. 
 
-===
+## Regulatory concerns
 
-# REGULATORY CONCERNS 
-
-## NEW ZEALAND
+### New Zealand
 
 My intepretation of the Financial Markets Conduct Act (New Zealand) is that nothing generated by this tool represents a financial planning service. It doesn't go anywhere towards recommending any particular type of financial product (or financial product generally). Nor does this go anywhere towards developing a financial plan. It might inform how someone's financial plan but it can't be seen as a plan on its own, and makes no suggestions whatsoever regarding what someone should do. 
 
 It is also worth noting that Flawcastr is being offered as an open-source project. Contributors are not working on this project for personal interest but to provide a useful tool for others. (This is relevant because many regulatory requirements are triggered when offered "in the business of providing" certain types of services.)
 
-## OTHER JURISDICTIONS
+### Other jurisdictions
 
 If and when Flawcastr is updated to operate in other countries, regulatory concerns should be considered on a case-by-case basis, by developers working in the context of that country.
 
-===
-
-# README UPDATES
+## README updates
 
 * Document first created 23/7/24
 * Minor amendments 28/7/24
